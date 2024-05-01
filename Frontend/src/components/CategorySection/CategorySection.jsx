@@ -45,16 +45,16 @@ const CategorySection = (props) => {
 
     fetchCategoryStories();
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    
   }, [props.category, props.selectedFilters]);
   if (categoryStories.length === 0) {
     return (
       <div className={styles.categoryContainer}>
-        {isMobile && (
+        
           <div className={styles.categoryHeader}>
             Top stories about {props.category}
           </div>
-        )}
+      
         <div
           style={{
             display: "flex",
@@ -73,11 +73,11 @@ const CategorySection = (props) => {
   return (
     <>
       <div className={styles.categoryContainer}>
-        {!isMobile && (
+        
           <div className={styles.categoryHeader}>
             Top stories about {props.category}
           </div>
-        )}
+
         <div className={styles.categoryStories}>
           {categoryStories
             .slice(0, isExpanded ? categoryStories.length : maxStoriesInRow)
