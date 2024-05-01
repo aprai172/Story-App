@@ -50,7 +50,7 @@ const CategorySection = (props) => {
   if (categoryStories.length === 0) {
     return (
       <div className={styles.categoryContainer}>
-        {!isMobile && (
+        {isMobile && (
           <div className={styles.categoryHeader}>
             Top stories about {props.category}
           </div>
