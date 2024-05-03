@@ -78,18 +78,24 @@ const CategorySection = (props) => {
             Top stories about {props.category}
           </div>
 
-        <div className={styles.categoryStories}>
-          {categoryStories
-            .slice(0, isExpanded ? categoryStories.length : maxStoriesInRow)
-            .map((story, index) => (
-              <Story
-                key={index}
-                story={story}
-                authValidated={props.authValidated}
-                handleStoryViewer={props.handleStoryViewer}
-              />
-            ))}
-        </div>
+          {categoryStories ? (
+      <div className={styles.categoryStories}>
+        {categoryStories
+          .slice(0, isExpanded ? categoryStories.length : maxStoriesInRow)
+          .map((story, index) => (
+            <Story
+              key={index}
+              story={story}
+              authValidated={props.authValidated}
+              handleStoryViewer={props.handleStoryViewer}
+            />
+          ))}
+      </div>
+    ) : (
+      <div className={styles.loadingContainer}>
+        <LoadingAnimation />
+      </div>
+    )}
         {!isMobile && maxStoriesInRow < categoryStories.length && (
           <button
             onClick={() => {
