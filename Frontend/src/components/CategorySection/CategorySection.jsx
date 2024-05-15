@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styles from "./categorySection.module.css";
-import { PacmanLoader } from 'react-spinners';
+// import { PacmanLoader } from 'react-spinners';
 import Story from "../Story/Story";
 import axios from "axios";
 
@@ -9,7 +9,7 @@ const CategorySection = (props) => {
   const [categoryStories, setCategoryStories] = useState([]);
   const [maxStoriesInRow] = useState(4);
   const [isExpanded, setIsExpanded] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
+  // const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const handleResize = () => {
@@ -35,7 +35,7 @@ const CategorySection = (props) => {
 
         if (response.status === 200) {
           const data = response.data;
-          setTimeout(()=>{ setIsLoading(false)},2000)
+          // setTimeout(()=>{ setIsLoading(false)},2000)
          
           setCategoryStories(data.posts);
         } else {
@@ -50,29 +50,29 @@ const CategorySection = (props) => {
 
     
   }, [props.category, props.selectedFilters]);
-  if (isLoading){
-      return (
-      <div className={styles.categoryContainer}>
+  // if (isLoading){
+  //     return (
+  //     <div className={styles.categoryContainer}>
         
-          <div className={styles.categoryHeader}>
-            Top stories about {props.category}
-          </div>
+  //         <div className={styles.categoryHeader}>
+  //           Top stories about {props.category}
+  //         </div>
       
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            height: "50vh",
-            color: "#8E8E8E",
-          }}
-        >
-         <PacmanLoader color="#333" size={50} loading={isLoading} />
-        </div>
-      </div>
-    );
+  //       <div
+  //         style={{
+  //           display: "flex",
+  //           justifyContent: "center",
+  //           alignItems: "center",
+  //           height: "50vh",
+  //           color: "#8E8E8E",
+  //         }}
+  //       >
+  //        <PacmanLoader color="#333" size={50} loading={isLoading} />
+  //       </div>
+  //     </div>
+  //   );
 
-  }
+  // }
 
 
   
